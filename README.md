@@ -24,12 +24,20 @@ In dieser Lernperiode würde ich gerne mit Winforms arbeiten und versuchen etwas
 
 ## 28.2: Kern-Funktionalität
 
-- [ ] Funktion um Aufgaben abzuhaken (löschen) also so das wenn man es abhakt das es automatisch gelöscht
-- [ ] Funktion um die Beschreibung der Aufgaben änder kann also wenn man ein Tippfehler hat
+- [x] Funktion um Aufgaben abzuhaken (löschen) also so das wenn man es abhakt das es automatisch gelöscht
+- [x] Funktion um die Beschreibung der Aufgaben änder kann also wenn man ein Tippfehler hat
 - [ ] Funktion um die Prioritäten der Aufgaben zu setzen durch Anordnung oder durch Farben
 - [ ] Funktion um auch das Sortieren durch Datum zu setzen
 
+      
+✍️ Heute habe ich die Funktionen zum Löschen und Bearbeiten von Aufgaben gemacht.Mit der Löschfunktion kann man eine ausgewählte Aufgabe aus der Liste entfernen. Wenn nichts ausgewählt ist gibt es eine Fehlermeldung.Die Bearbeitungsfunktion erlaubt es eine Aufgabe auszuwählen um den Text zu ändern und zu speichern. Ich habe darauf geachtet dass keine leeren Texte eingegeben werden.
+
 ## 7.3: Kern-Funktionalität
+
+- [ ] Funktion um die Prioritäten der Aufgaben zu setzen durch Anordnung oder durch Farben
+- [ ] Funktion um auch das Sortieren durch Datum zu setzen
+- [ ] Daten speichern und dann Laden
+- [ ] Erledigt-Markierung für Aufgaben hinzufügen zum Bsp Haken setzen 
 ## 14.3: Architektur ausbauen
 ## 21.3: Architektur ausbauen
 ## 28.3: Auspolieren
