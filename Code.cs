@@ -1,14 +1,15 @@
 using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 
 namespace LP4
 {
-    public partial class Form1 : Form
+    public partial class txtBearbeiten : Form
     {
         private List<string> aufgabenListe;
-        public Form1()
+        public txtBearbeiten()
         {
             InitializeComponent();
             aufgabenListe = new List<string>();
@@ -45,9 +46,6 @@ namespace LP4
             }
         }
 
-
-
-
         private void btnAnzeigen_Click(object sender, EventArgs e)
         {
             lstAufgaben.Items.Clear();
@@ -62,6 +60,43 @@ namespace LP4
             else
             {
                 MessageBox.Show("Keine Aufgaben vorhanden.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnLöschen_Click(object sender, EventArgs e)
+        {
+            if (lstAufgaben.SelectedIndex != -1)
+            {
+                aufgabenListe.RemoveAt(lstAufgaben.SelectedIndex);
+                lstAufgaben.Items.RemoveAt(lstAufgaben.SelectedIndex);
+            }
+            else
+            {
+                MessageBox.Show("Bitte eine Aufgabe auswählen!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnBearbeiten_Click(object sender, EventArgs e)
+        {
+            if (lstAufgaben.SelectedIndex != -1) // Prüfen, ob eine Aufgabe ausgewählt wurde
+            {
+                string neueBeschreibung = txtedit.Text.Trim();
+
+                if (!string.IsNullOrEmpty(neueBeschreibung))
+                {
+                    int index = lstAufgaben.SelectedIndex;
+                    aufgabenListe[index] = neueBeschreibung; // Liste aktualisieren
+                    lstAufgaben.Items[index] = neueBeschreibung; // ListBox aktualisieren
+                    txtedit.Clear(); // Eingabefeld leeren
+                }
+                else
+                {
+                    MessageBox.Show("Bitte eine neue Beschreibung eingeben!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bitte eine Aufgabe auswählen!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
