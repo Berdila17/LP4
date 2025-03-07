@@ -37,8 +37,17 @@ In dieser Lernperiode würde ich gerne mit Winforms arbeiten und versuchen etwas
 - [ ] Funktion um die Prioritäten der Aufgaben zu setzen durch Anordnung oder durch Farben
 - [ ] Funktion um auch das Sortieren durch Datum zu setzen
 - [ ] Daten speichern und dann Laden
-- [ ] Erledigt-Markierung für Aufgaben hinzufügen zum Bsp Haken setzen 
+- [ ] Erledigt-Markierung für Aufgaben hinzufügen zum Bsp Haken setzen
+
+✍️ Heute habe ich leider sehr den Überblick verloren zuerst habe ich mit den ersten zwei Funktionen angefangen und alles lief sehr rund und es hat auch funktioniert aber dann musste ich mit den Daten speichern und laden arbeiten und brauchte dagür ein bisschen Hilfe warum ich dann eben auch ChatGBT nach einen Theorieinput gefragt habe, dieser hat es mir dann auch gegeben und ich habe versucht es selber zu lösen. Darauf funktionierte es nicht und habe es öfter probiert. Ich habe dann ChatGBT was ich für ein Fehler gemacht habe und darauf hat er es mir gezeigt und mir mein kompletten Code überabreitet dann wollte ich es nur mit seinem Code kurz probieren und schauen ob es funktioniert was dann auch nicht funktioniert hat und jetzt seh ich Namen von den Buttons etc die ich nicht nicht so bennant habe und die Strukur ist für mich unuübersichtlich und ein bisschen schlecht. Er hat mein Code kaputt gemacht aber ich lade diesen Code trotzdem mal hoch. Das war mein erste Niederlage
+      
 ## 14.3: Architektur ausbauen
+
+- [ ] Die Struktur wiederherstellen und von neu Anfangen
+- [ ] Funktion um die Prioritäten der Aufgaben zu setzen durch Anordnung oder durch Farben
+- [ ] Funktion um auch das Sortieren durch Datum zu setzen
+- [ ] Daten speichern und dann Laden
+      
 ## 21.3: Architektur ausbauen
 ## 28.3: Auspolieren
 ## 4.4: Auspolieren & Abschluss
