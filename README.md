@@ -43,11 +43,18 @@ In dieser Lernperiode würde ich gerne mit Winforms arbeiten und versuchen etwas
       
 ## 14.3: Architektur ausbauen
 
-- [ ] Die Struktur wiederherstellen und von neu Anfangen
-- [ ] Funktion um die Prioritäten der Aufgaben zu setzen durch Anordnung oder durch Farben
+- [x] Die Struktur wiederherstellen und von neu Anfangen
+- [x] Funktion um die Prioritäten der Aufgaben zu setzen durch Anordnung oder durch Farben
 - [ ] Funktion um auch das Sortieren durch Datum zu setzen
 - [ ] Daten speichern und dann Laden
-      
+
+✍️ Heute habe ich die Struktur wiederhergestellet halbwegs noch nicht alles aber das meiste und um nicht viel Zeit damit zu verlieren hab ich ein bisschen mit dem Code rumgespielt sozusagen also ich habe mich mehr um die Buttons mit den Funktionen versucht zu kümmern und um das GUI aber beim Daten speichern und laden kamen wieder die nervigen Syntaxfehler nächstes mal möchte ich den vollständigen Code wie davor haben weil ich ein grossen Teil davon noch nicht zurück habe
 ## 21.3: Architektur ausbauen
+
+- [ ] Vollständigen Code wiederherstellen
+- [ ] Erledigt-Markierung für Aufgaben hinzufügen
+- [ ] Fälligkeitsdatum für Aufgaben einbauen
+- [ ] Suchfunktion für Aufgaben
+
 ## 28.3: Auspolieren
 ## 4.4: Auspolieren & Abschluss
