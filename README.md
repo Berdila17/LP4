@@ -51,10 +51,17 @@ In dieser Lernperiode würde ich gerne mit Winforms arbeiten und versuchen etwas
 ✍️ Heute habe ich die Struktur wiederhergestellet halbwegs noch nicht alles aber das meiste und um nicht viel Zeit damit zu verlieren hab ich ein bisschen mit dem Code rumgespielt sozusagen also ich habe mich mehr um die Buttons mit den Funktionen versucht zu kümmern und um das GUI aber beim Daten speichern und laden kamen wieder die nervigen Syntaxfehler nächstes mal möchte ich den vollständigen Code wie davor haben weil ich ein grossen Teil davon noch nicht zurück habe
 ## 21.3: Architektur ausbauen
 
-- [ ] Vollständigen Code wiederherstellen
+- [x] Vollständigen Code wiederherstellen
 - [ ] Erledigt-Markierung für Aufgaben hinzufügen
-- [ ] Fälligkeitsdatum für Aufgaben einbauen
+- [x] Fälligkeitsdatum für Aufgaben einbauen
 - [ ] Suchfunktion für Aufgaben
 
+✍️ Heute habe ich mehr oder weniger mein Code wiederhergestellt obwohl mir noch paar Sachen probleme bereiten aber die Fälligkeitsdatum funktioniert mehr oder weniger dazubin ich mit der Erledigt Markierung fast fertig.
+
 ## 28.3: Auspolieren
+
+- [ ] Erledigt-Markierung für Aufgaben hinzufügen
+- [ ] Suchfunktion für Aufgaben
+- [ ] Kategorien für Aufgaben hinzufügen
+- [ ] Filteroptionen wie nur erledigte oder unerledigte Aufgaben anzeigen
 ## 4.4: Auspolieren & Abschluss
