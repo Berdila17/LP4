@@ -65,7 +65,7 @@ In dieser Lernperiode würde ich gerne mit Winforms arbeiten und versuchen etwas
 - [ ] Kategorien für Aufgaben hinzufügen
 - [ ] Filteroptionen wie nur erledigte oder unerledigte Aufgaben anzeigen
 
-✍️ Heute habe ich mein Code korrigiert weil wenn man etwas falsch schreibt und dann auf dem Designer kommt Meldungen und es muss alles wieder zurück gemacht werden. Dazu war die Prioritätcombox mit der Priorität irgendwie nicht am funktionoieren deswegen hab ich noch die Daten im Code hinzugefügt (hoch,mittel,niedrig).
+✍️ Heute habe ich mein Code korrigiert weil wenn man etwas falsch schreibt und dann auf dem Designer kommt Meldungen und es muss alles wieder zurück gemacht werden. Dazu war die Prioritätcombox mit der Priorität irgendwie nicht am funktionoieren deswegen hab ich noch die Daten im Code hinzugefügt (hoch,mittel,niedrig). Dazu noch hab ich den Code ein bisschen umgeschrieben und alles in Englisch umbenannt.
 
 
 
