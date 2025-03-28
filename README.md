@@ -60,8 +60,16 @@ In dieser Lernperiode würde ich gerne mit Winforms arbeiten und versuchen etwas
 
 ## 28.3: Auspolieren
 
-- [ ] Erledigt-Markierung für Aufgaben hinzufügen
-- [ ] Suchfunktion für Aufgaben
+- [ ] Verschönern
+- [ ] Fehler beheben
 - [ ] Kategorien für Aufgaben hinzufügen
 - [ ] Filteroptionen wie nur erledigte oder unerledigte Aufgaben anzeigen
+
+✍️ Heute habe ich mein Code korrigiert weil wenn man etwas falsch schreibt und dann auf dem Designer kommt Meldungen und es muss alles wieder zurück gemacht werden. Dazu war die Prioritätcombox mit der Priorität irgendwie nicht am funktionoieren deswegen hab ich noch die Daten im Code hinzugefügt (hoch,mittel,niedrig).
+
+
+
 ## 4.4: Auspolieren & Abschluss
+
+- [ ] Visuelle Darstellung verschönen Farbe etc.
+- [ ] letzte Fehlerbehebungen und Kontrolle
