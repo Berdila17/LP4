@@ -1,147 +1,105 @@
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
-
-namespace LP4
+namespace Aufgabenverwalter
 {
-    public partial class txtBearbeiten : Form
+    public partial class Form1 : Form
     {
-        
-        private List<Aufgabe> aufgabenListe;
-
-        public txtBearbeiten()
+        public Form1()
         {
             InitializeComponent();
-            aufgabenListe = new List<Aufgabe>();
-        }
-
-       
-        private void txtBearbeiten_Load(object sender, EventArgs e)
-        {
-           
-            cmbPriorität.Items.Clear();
-            cmbPriorität.Items.Add("Hoch");
-            cmbPriorität.Items.Add("Mittel");
-            cmbPriorität.Items.Add("Niedrig");
-            cmbPriorität.SelectedIndex = 1; 
+          
+            this.Load += Form1_Load;
         }
 
         
-        private void btnHinzufügen_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            string beschreibung = txtAufgabe.Text.Trim();
-            if (string.IsNullOrEmpty(beschreibung))
+            cmbPriority.Items.Add("Hoch");
+            cmbPriority.Items.Add("Mittel");
+            cmbPriority.Items.Add("Niedrig");
+
+           
+            if (cmbPriority.Items.Count > 0)
+                cmbPriority.SelectedIndex = 0;
+        }
+
+        private void btnAddTask_Click(object sender, EventArgs e)
+        {
+            string taskDescription = txtTaskDescription.Text.Trim();
+            if (string.IsNullOrEmpty(taskDescription))
             {
-                MessageBox.Show("Bitte eine Aufgabe eingeben!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Bitte eine gültige Aufgabe eingeben.");
                 return;
             }
 
-         
-            Aufgabe neueAufgabe = new Aufgabe
-            {
-                Beschreibung = beschreibung,
-                Prioritaet = cmbPriorität.SelectedItem.ToString(),
-                Faelligkeitsdatum = dateTimePicker1.Value,
-                Erledigt = false
-            };
+            string priority = cmbPriority.SelectedItem?.ToString() ?? "Mittel";
+            DateTime dueDate = dtpDueDate.Value;
 
-           
-            aufgabenListe.Add(neueAufgabe);
-            MessageBox.Show("Aufgabe hinzugefügt!", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string taskEntry = $"{taskDescription} | Priorität: {priority} | Fällig: {dueDate.ToShortDateString()}";
 
-            
-            txtAufgabe.Clear();
-            cmbPriorität.SelectedIndex = 1;
+            lstTasks.Items.Add(taskEntry);
+
+            txtTaskDescription.Clear();
+            if (cmbPriority.Items.Count > 0)
+                cmbPriority.SelectedIndex = 0;
         }
 
-       
-        private void btnAnzeigen_Click(object sender, EventArgs e)
+        private void btnShowTasks_Click(object sender, EventArgs e)
         {
-            AktualisiereListe();
-        }
-
-      
-        private void AktualisiereListe()
-        {
-            lstAufgaben.Items.Clear();
-            foreach (Aufgabe a in aufgabenListe)
+            if (lstTasks.Items.Count == 0)
             {
-                lstAufgaben.Items.Add(a);
+                MessageBox.Show("Keine Aufgaben vorhanden.");
+                return;
             }
+
+            string allTasks = string.Join(Environment.NewLine, lstTasks.Items.Cast<string>());
+            MessageBox.Show(allTasks, "Alle Aufgaben");
         }
 
-     
-        private void btnLöschen_Click(object sender, EventArgs e)
+        private void btnDeleteTask_Click(object sender, EventArgs e)
         {
-            if (lstAufgaben.SelectedIndex >= 0)
+            if (lstTasks.SelectedIndex >= 0)
             {
-                aufgabenListe.RemoveAt(lstAufgaben.SelectedIndex);
-                AktualisiereListe();
+                lstTasks.Items.RemoveAt(lstTasks.SelectedIndex);
             }
             else
             {
-                MessageBox.Show("Bitte eine Aufgabe auswählen!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Bitte wählen Sie eine Aufgabe zum Löschen aus.");
             }
         }
 
-        private void btnBearbeiten_Click(object sender, EventArgs e)
+        private void btnEditTask_Click(object sender, EventArgs e)
         {
-            if (lstAufgaben.SelectedIndex >= 0)
+            if (lstTasks.SelectedIndex >= 0)
             {
-                string neueBeschreibung = txtedit.Text.Trim();
-                if (string.IsNullOrEmpty(neueBeschreibung))
+                string currentTask = lstTasks.SelectedItem.ToString();
+                string newTask = Microsoft.VisualBasic.Interaction.InputBox("Aufgabenbeschreibung bearbeiten:", "Aufgabe bearbeiten", currentTask);
+                if (!string.IsNullOrEmpty(newTask))
                 {
-                    MessageBox.Show("Bitte eine neue Beschreibung eingeben!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    lstTasks.Items[lstTasks.SelectedIndex] = newTask;
                 }
-
-              
-                Aufgabe ausgewaehlteAufgabe = (Aufgabe)lstAufgaben.SelectedItem;
-                ausgewaehlteAufgabe.Beschreibung = neueBeschreibung;
-
-               
-                AktualisiereListe();
-                txtedit.Clear();
             }
             else
             {
-                MessageBox.Show("Bitte eine Aufgabe auswählen!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Bitte wählen Sie eine Aufgabe zum Bearbeiten aus.");
             }
         }
 
-      
-        private void btnSortieren_Click(object sender, EventArgs e)
+        private void lstTasks_DrawItem(object sender, DrawItemEventArgs e)
         {
-            aufgabenListe.Sort((a, b) =>
-            {
-                int prioA = PriorityToNumber(a.Prioritaet);
-                int prioB = PriorityToNumber(b.Prioritaet);
-                int result = prioA.CompareTo(prioB);
-                if (result == 0)
-                {
-                    return a.Faelligkeitsdatum.CompareTo(b.Faelligkeitsdatum);
-                }
-                return result;
-            });
+            if (e.Index < 0) return;
 
-            AktualisiereListe();
-        }
+            string taskEntry = lstTasks.Items[e.Index].ToString();
 
-       
-        private int PriorityToNumber(string prio)
-        {
-            switch (prio.ToLower())
-            {
-                case "hoch":
-                    return 1;
-                case "mittel":
-                    return 2;
-                case "niedrig":
-                    return 3;
-                default:
-                    return 4;
-            }
+            Color color = Color.Black;
+            if (taskEntry.Contains("Hoch"))
+                color = Color.Red;
+            else if (taskEntry.Contains("Niedrig"))
+                color = Color.Green;
+
+            e.DrawBackground();
+            TextRenderer.DrawText(e.Graphics, taskEntry, e.Font, e.Bounds, color);
+            e.DrawFocusRectangle();
         }
     }
 }
+
+
