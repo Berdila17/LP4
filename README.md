@@ -71,5 +71,16 @@ In dieser Lernperiode würde ich gerne mit Winforms arbeiten und versuchen etwas
 
 ## 4.4: Auspolieren & Abschluss
 
-- [ ] Visuelle Darstellung verschönen Farbe etc.
-- [ ] letzte Fehlerbehebungen und Kontrolle
+- [x] Visuelle Darstellung verschönen Farbe etc.
+- [x] letzte Fehlerbehebungen und Kontrolle
+
+## Reflexion
+
+In dieser Lernperiode habe ich mit WinForms gearbeitet und ein Programm zur Aufgabenverwaltung erstellt. Dabei habe ich viel über die Gestaltung von Benutzeroberflächen und den Einsatz von Steuerelementen wie Buttons, ComboBoxen und DateTimePicker gelernt. Besonders spannend fand ich, wie Ereignisse funktionieren also was passiert wenn man zum Beispiel auf „Hinzufügen“ klickt. Anfangs war das Layout etwas chaotisch, aber mit Elementen wie dem TableLayoutPanel wurde es übersichtlicher und benutzerfreundlicher. Richtig Spaß gemacht hat mir das sichtbare Ergebnis wenn eine Aktion im Programm funktioniert, fühlt sich das richtig gut an. Auch das Design hat einen großen Unterschied gemacht, mit ein bisschen Farbe wirkte alles gleich moderner. Natürlich gab es auch Herausforderungen, vor allem bei der Zusammenarbeit verschiedener Elemente, aber das hat mich eher motiviert als frustriert. Insgesamt bin ich zufrieden mit dem Ergebnis und stolz auf das, was ich gelernt und umgesetzt habe
+
+
+## Mein eigenes Projekt
+
+![image](https://github.com/user-attachments/assets/6a8f777e-df43-47db-b3e9-8ceef37bd301)
+
+Ich habe ein Aufgabenverwalter erstellt mit dem man Aufgaben^in einer Liste hinzufügen kann mit einem Fälligkeitsdatum und Priorität. Man kann die Aufgaben in der Liste anzeigen lassen, bearbeiten und löschen.
