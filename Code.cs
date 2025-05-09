@@ -1,3 +1,12 @@
+
+
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
+using Aufgabenverwalter; 
+
 namespace Aufgabenverwalter
 {
     public partial class Form1 : Form
@@ -5,20 +14,19 @@ namespace Aufgabenverwalter
         public Form1()
         {
             InitializeComponent();
-          
             this.Load += Form1_Load;
         }
 
-        
         private void Form1_Load(object sender, EventArgs e)
         {
             cmbPriority.Items.Add("Hoch");
             cmbPriority.Items.Add("Mittel");
             cmbPriority.Items.Add("Niedrig");
 
-           
             if (cmbPriority.Items.Count > 0)
                 cmbPriority.SelectedIndex = 0;
+
+            LadeAufgabenAusDatenbank();
         }
 
         private void btnAddTask_Click(object sender, EventArgs e)
@@ -33,32 +41,39 @@ namespace Aufgabenverwalter
             string priority = cmbPriority.SelectedItem?.ToString() ?? "Mittel";
             DateTime dueDate = dtpDueDate.Value;
 
-            string taskEntry = $"{taskDescription} | Priorität: {priority} | Fällig: {dueDate.ToShortDateString()}";
+           
+            DbHelper.InsertTask(taskDescription, priority, dueDate);
 
-            lstTasks.Items.Add(taskEntry);
-
+            MessageBox.Show("✅ Aufgabe gespeichert!");
             txtTaskDescription.Clear();
-            if (cmbPriority.Items.Count > 0)
-                cmbPriority.SelectedIndex = 0;
+            cmbPriority.SelectedIndex = 0;
+
+            LadeAufgabenAusDatenbank();
         }
 
         private void btnShowTasks_Click(object sender, EventArgs e)
         {
-            if (lstTasks.Items.Count == 0)
-            {
-                MessageBox.Show("Keine Aufgaben vorhanden.");
-                return;
-            }
+            LadeAufgabenAusDatenbank();
+        }
 
-            string allTasks = string.Join(Environment.NewLine, lstTasks.Items.Cast<string>());
-            MessageBox.Show(allTasks, "Alle Aufgaben");
+        private void LadeAufgabenAusDatenbank()
+        {
+            lstTasks.Items.Clear();
+            var aufgaben = DbHelper.LadeAlleAufgaben();
+
+            foreach (var aufgabe in aufgaben)
+            {
+                lstTasks.Items.Add(new ListItem { Id = aufgabe.Id, Text = aufgabe.Anzeige });
+            }
         }
 
         private void btnDeleteTask_Click(object sender, EventArgs e)
         {
-            if (lstTasks.SelectedIndex >= 0)
+            if (lstTasks.SelectedItem is ListItem selected)
             {
-                lstTasks.Items.RemoveAt(lstTasks.SelectedIndex);
+                DbHelper.DeleteTask(selected.Id);
+                MessageBox.Show("❌ Aufgabe gelöscht");
+                LadeAufgabenAusDatenbank();
             }
             else
             {
@@ -68,19 +83,7 @@ namespace Aufgabenverwalter
 
         private void btnEditTask_Click(object sender, EventArgs e)
         {
-            if (lstTasks.SelectedIndex >= 0)
-            {
-                string currentTask = lstTasks.SelectedItem.ToString();
-                string newTask = Microsoft.VisualBasic.Interaction.InputBox("Aufgabenbeschreibung bearbeiten:", "Aufgabe bearbeiten", currentTask);
-                if (!string.IsNullOrEmpty(newTask))
-                {
-                    lstTasks.Items[lstTasks.SelectedIndex] = newTask;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Bitte wählen Sie eine Aufgabe zum Bearbeiten aus.");
-            }
+            MessageBox.Show("Bearbeiten-Funktion funktioniert aktuell nur visuell in der Liste.\nIn der Datenbank muss sie noch eingebaut werden.");
         }
 
         private void lstTasks_DrawItem(object sender, DrawItemEventArgs e)
@@ -99,7 +102,12 @@ namespace Aufgabenverwalter
             TextRenderer.DrawText(e.Graphics, taskEntry, e.Font, e.Bounds, color);
             e.DrawFocusRectangle();
         }
+
+        private class ListItem
+        {
+            public int Id { get; set; }
+            public string Text { get; set; }
+            public override string ToString() => Text;
+        }
     }
 }
-
-
