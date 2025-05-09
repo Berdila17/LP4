@@ -83,7 +83,7 @@ namespace Aufgabenverwalter
 
         private void btnEditTask_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Bearbeiten-Funktion funktioniert aktuell nur visuell in der Liste.\nIn der Datenbank muss sie noch eingebaut werden.");
+           // Muss noch überarbeitet werden das nächste mal
         }
 
         private void lstTasks_DrawItem(object sender, DrawItemEventArgs e)
